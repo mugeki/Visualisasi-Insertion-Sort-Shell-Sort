@@ -2,7 +2,6 @@ from tkinter import *
 import random
 import time
 
-
 root = Tk()
 root.title('Visualisasi Algoritma Insertion Sort & Shell Sort')
 root.maxsize(1080,720)
@@ -67,7 +66,7 @@ def drawArr(data, color, canvas):
         x1 = (i + 1) * x_width + offset
         y1 = c_height
 
-        canvas.create_rectangle(x0, y0, x1, y1, fill=color[i])
+        canvas.create_rectangle(x0, y0, x1, y1, fill=color[i], outline=color[i])
 
     root.update_idletasks()
 
@@ -88,10 +87,12 @@ def generateArr():
 def startAlgo():
     global data1
     global data2
-    insertion_sort(data1, drawArr, canvas1)
+
     shell_sort(data2, drawArr, canvas2)
+    insertion_sort(data1, drawArr, canvas1)
 
 # Main Canvas #
+
 Label(root,text="Insertion Sort",bg='white').grid(row=0,column=0)
 Label(root,text="Shell Sort",bg='white').grid(row=0,column=1)
 
